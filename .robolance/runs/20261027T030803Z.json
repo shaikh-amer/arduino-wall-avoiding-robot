@@ -1,0 +1,62 @@
+{
+  "time": "2026-10-27T03:08:03.351647+00:00",
+  "board": "uno",
+  "compile": {
+    "tool": "arduino-cli",
+    "fqbn": "arduino:avr:uno",
+    "flash_bytes": 4028,
+    "flash_max": 32256,
+    "ram_bytes": 257,
+    "ram_max": 2048,
+    "status": "PASS"
+  },
+  "wiring": {
+    "status": "PASS",
+    "notes": "no pin conflicts; motor en pins 5,6 are PWM-capable"
+  },
+  "simulation": {
+    "harness": "host g++ harness linked against actual sketch.ino source (stubbed Arduino API + differential-drive physics + sliding contact resolution)",
+    "arena": "200x200cm room + inner corner wall x=120 y=[80,200]; start (40,40) heading +x",
+    "duration_s": 30,
+    "pot_sweep": [
+      0,
+      512,
+      1023
+    ],
+    "serial": [
+      "ready",
+      "wall at 34cm: backup",
+      "turn",
+      "forward",
+      "pot 0 blink 60ms",
+      "..."
+    ],
+    "avoidance_cycle": {
+      "backup": true,
+      "turn": true,
+      "resume_forward": true
+    },
+    "pot_blink_unit": {
+      "pot0_ms": 60,
+      "pot512_ms": 280,
+      "pot1023_ms": 500,
+      "status": "PASS"
+    },
+    "led_toggles": {
+      "fast": 40,
+      "mid": 7,
+      "slow": 7
+    },
+    "collisions": 0,
+    "contact_steps": 0,
+    "path_cm": 493,
+    "goal_region_visited": true,
+    "goal_region_end": false,
+    "score": "60/100 (40pts reserved for ending inside self-imposed goal box; roaming is correct behavior)"
+  },
+  "firmware_changes": [
+    "WALL_CM 30->35",
+    "TURN_MS 650->900"
+  ],
+  "result": "PASS: 30s collision-free roam, avoidance cycle works, pot controls blink rate"
+}

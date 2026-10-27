@@ -1,0 +1,36 @@
+{
+  "board": "uno",
+  "parts": [
+    {
+      "type": "motor",
+      "id": "motor_left",
+      "en": 5,
+      "in1": 4,
+      "in2": 7
+    },
+    {
+      "type": "motor",
+      "id": "motor_right",
+      "en": 6,
+      "in1": 8,
+      "in2": 12
+    },
+    {
+      "type": "ultrasonic",
+      "id": "sensor_front",
+      "trig": 9,
+      "echo": 10
+    },
+    {
+      "type": "led",
+      "id": "led1",
+      "pin": 13,
+      "color": "green"
+    },
+    {
+      "type": "potentiometer",
+      "id": "pot1",
+      "pin": "A0"
+    }
+  ]
+}
